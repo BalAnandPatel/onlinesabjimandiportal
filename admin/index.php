@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Eracreatix | Admin login</title>
+	<title>Online Sabji Mandi | Admin login</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -50,14 +50,14 @@ if (isset($_POST['submit'])) {
 				</a>
 
 				<a class="brand" href="index.html">
-					Eracreatix | Admin
+					Online Sabji Mandi | Admin
 				</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 
 					<ul class="nav pull-right">
 
-						<li><a href="http://localhost/shopping/">
+						<li><a href="http://localhost/onlinesabjimandiportal/">
 								Back to Portal
 
 							</a></li>

@@ -24,13 +24,13 @@ if (isset($_SESSION['id'])) {
     <link rel="preconnect" href="https://cdn.shopify.com/" crossorigin>
     <link rel="shortcut icon" type="image/png" href="cdn/shop/files/apple-icon-152x152d3ee.png?v=1674062412&amp;width=32">
     <link rel="apple-touch-icon-precomposed" type="image/png" sizes="152x152" href="cdn/shop/files/apple-icon-152x152c78b.png?v=1674062412&amp;width=152">
-    <title>Buy Best Home Decor Items &amp; Essentials Online At Best Prices &ndash; Era Creatix</title>
+    <title>Online Sabji Mandi &amp; Vegitable and Fruits At Best Prices &ndash; Make your Shoping Simple</title>
     <meta name="description" content="Home Décor- Buy Home Decorative Items &amp; essentials Online in India. Choose from a wide range of premium home decor products at Era Creatix. Buy house decoration items online at best prices.">
     <meta name="keywords" content="buy home decor, bedsheets, towels, kitchen, mugs online" />
     <meta name="author" content="House of Era Creatix">
 
     <meta property="og:site_name" content="Era Creatix">
-    <meta property="og:url" content="https://eracreatix.com/">
+    <meta property="og:url" content="https://onlinesabjimandi.com/">
     <meta property="og:title" content="Buy Best Home Decor Items &amp; Essentials Online At Best Prices">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Home Décor- Buy Home Decorative Items &amp; essentials Online in India. Choose from a wide range of premium home decor products at Era Creatix. Buy house decoration items online at best prices.">
@@ -141,9 +141,10 @@ if (isset($_SESSION['id'])) {
                             <div class="t4s-col-lg-3 t4s-col-md-4 t4s-col-6 t4s-text-center t4s-text-lg-start t4s-col-item">
                                 <div class=" t4s-header__logo t4s-lh-1">
                                     <a class="t4s-d-inline-block" href="index.php">
-                                        <img src="media/logoo.png" class="header__normal-logo t4s-d-none t4s-d-lg-block" alt="Era Creatix" style="width: 50px">
+                                        Onlinesabjimandi.com
+                                        <!-- <img src="media/logoo.png" class="header__normal-logo t4s-d-none t4s-d-lg-block" alt="Era Creatix" style="width: 50px">
                                         <img src="media/logoo.png" class="header__sticky-logo t4s-d-none t4s-d-none" alt="Era Creatix" style="width: 50px">
-                                        <img src="media/logoo.png" class="header__mobile-logo t4s-d-lg-none" alt="Era Creatix" style="width: 50px">
+                                        <img src="media/logoo.png" class="header__mobile-logo t4s-d-lg-none" alt="Era Creatix" style="width: 50px"> -->
                                     </a>
                                 </div>
                             </div>

@@ -36,8 +36,8 @@
                                             <i class="las la-exchange-alt"></i> Feedback and Support
                                         </a>
                                         
-                                        <a style="display:flex;align-items:center;line-height:2em;" href="mailto:eracreatix@gmail.com">
-                                            <i class="las la-envelope"></i> eracreatix@gmail.com
+                                        <a style="display:flex;align-items:center;line-height:2em;" href="mailto:onlinesabjimandi@gmail.com">
+                                            <i class="las la-envelope"></i> onlinesabji@gmail.com
                                         </a>
                                         <br>
                                     </div>
@@ -234,7 +234,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="t4s-coppy-right" style="--mgb: 0px;--mgb-mb: 0px;">Copyright ? 2024 <span class="t4s-cp">Era Creatix</span> all rights reserved.</div>
+                                <div class="t4s-coppy-right" style="--mgb: 0px;--mgb-mb: 0px;">Copyright ? 2024 <span class="t4s-cp">Online Sabji Mandi</span> all rights reserved.</div>
                             </div>
                         </div>
                     </div>
