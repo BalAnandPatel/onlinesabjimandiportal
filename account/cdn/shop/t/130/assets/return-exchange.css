@@ -1,0 +1,36 @@
+.return-exchange-content{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.return-exchange-banner-container{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.return-exchange-text{
+  font-size:14px;
+  color: var(--return-exchange-primary-text);
+  font-weight:600;
+}
+.return-exchange-policy-details{
+  margin-top:20px;
+}
+
+.return-exchange-policy-details ol{
+  margin-bottom:0;
+}
+.return-exchange-policy-details ol li{
+  font-size:14px;
+  color: var(--return-exchange-primary-text);
+}
+
+.sub-item li{
+  list-style-type: lower-latin;
+}
+.refund-policy-link{
+  color:var(--return-exchange-link);
+}
+.refund-policy-link:hover{
+  color:var(--return-exchange-link) !important;
+}

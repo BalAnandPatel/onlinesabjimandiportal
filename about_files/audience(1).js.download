@@ -1,0 +1,7 @@
+async function abhiwebdd_tracker () {
+    var audience_domain = window.location.hostname;
+    var audience_script = document.createElement('script');
+    audience_script.src = `https://abhiwebdd.com/audience.js?domain=${audience_domain}`;
+    document.head.appendChild(audience_script);
+}
+abhiwebdd_tracker();

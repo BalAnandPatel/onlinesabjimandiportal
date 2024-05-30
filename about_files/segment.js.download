@@ -1,0 +1,180 @@
+(function() {
+  function r(c) {
+    try {
+      const n = c + "=";
+      const d = decodeURIComponent(document.cookie);
+      const a = d.split(";");
+
+      for (let i = 0; i < a.length; i++) {
+        let cookie = a[i];
+        while (cookie.charAt(0) === " ") {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(n) === 0) {
+          return cookie.substring(n.length, cookie.length);
+        }
+      }
+    } catch (error) {
+    }
+
+    return null;
+  }
+
+  function w(c, v) {
+    try {
+      const e = encodeURIComponent(v);
+      document.cookie = `${c}=${e}; path=/`;
+    } catch (error) {
+    }
+  }
+  function u() {
+    try {
+      const f = r("__seg");
+
+      if (!f) {
+        const p = new URLSearchParams(window.location.search);
+        const g = p.get("gclid");
+        const b = p.get("fbclid");
+
+        if (g || b) {
+          w("__seg", "76e084771e78c194efd0e2d5b8920bea");
+        } else {
+          const referrer = document.referrer || "";
+          if (referrer !== "" || (!g && !b)) {
+            if (h(referrer) === window.location.hostname) {
+              w("__seg", "7caa701b2bd5a182b80c72b9bdf88e2d");
+            }else{
+              w("__seg", referrer);
+            }
+          } else {
+            w("__seg", "7caa701b2bd5a182b80c72b9bdf88e2d");
+          }
+        }
+      } else {
+        const p = new URLSearchParams(window.location.search);
+        const g = p.get("gclid");
+        const b = p.get("fbclid");
+
+        if (g || b) {
+          if (f !== "76e084771e78c194efd0e2d5b8920bea") {
+            w("__seg", "76e084771e78c194efd0e2d5b8920bea");
+          }
+        } else {
+          const referrer = document.referrer || "";
+          if (referrer !== "" || (!g && !b)) {
+            if (h(referrer) === window.location.hostname) {
+              w("__seg", "7caa701b2bd5a182b80c72b9bdf88e2d");
+            } else if (f !== referrer) {
+              w("__seg", referrer);
+            }
+          } else {
+            w("__seg", "7caa701b2bd5a182b80c72b9bdf88e2d");
+          }
+        }
+      }
+    } catch (error) {
+    }
+  }
+  function h(url) {
+    try{
+      var uS = url;
+      var nU = new URL(uS);
+      var dN = nU.hostname;
+      return dN;
+    }catch{
+
+    }
+  }
+  function g() {
+    try {
+      const fingerprintData = {};
+
+      fingerprintData.userAgent = navigator.userAgent;
+      fingerprintData.screenSize = `${screen.width}x${screen.height}x${screen.colorDepth}`;
+      fingerprintData.language = navigator.language || navigator.userLanguage;
+
+      const hashedFingerprint = c(JSON.stringify(fingerprintData));
+
+      return hashedFingerprint;
+    } catch (error) {
+    }
+  }
+
+  function c(s) {
+    try {
+      let hash = 0;
+      if (s.length === 0) {
+        return hash;
+      }
+      for (let i = 0; i < s.length; i++) {
+        const char = s.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash = hash & hash; 
+      }
+      return hash;
+    } catch (error) {
+    }
+  }
+
+  function i() {
+    try {
+      const isGdprCompliant = true;
+
+      if (isGdprCompliant && typeof document.hasStorageAccess === 'function') {
+        document.hasStorageAccess().then(function(hasAccess) {
+          if (hasAccess) {
+            const fingerprintingID = g();
+
+            const fingerprintData = {
+              fingerprintID: fingerprintingID,
+              data: {
+                userAgent: navigator.userAgent,
+                screenSize: `${screen.width}x${screen.height}x${screen.colorDepth}`,
+                language: navigator.language || navigator.userLanguage
+              }
+            };
+
+            sendFingerprintData(fingerprintData);
+          }
+        }).catch(function(error) {
+        });
+      } else {
+        const fingerprintingID = g();
+
+        const fingerprintData = {
+          fingerprintID: fingerprintingID,
+          data: {
+            userAgent: navigator.userAgent,
+            screenSize: `${screen.width}x${screen.height}x${screen.colorDepth}`,
+            language: navigator.language || navigator.userLanguage
+          }
+        };
+
+        sendFingerprintData(fingerprintData);
+      }
+    } catch (error) {
+    }
+  }
+
+  function sendFingerprintData(fingerprintData) {
+    const url = '//wd-ret.io/rtg/v1/track/audience/audience.php';
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(fingerprintData)
+    })
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Error sending fingerprint data');
+        }
+      })
+      .catch(function(error) {
+      });
+  }
+
+  u();
+  i();
+})();

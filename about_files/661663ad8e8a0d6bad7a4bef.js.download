@@ -1,0 +1,6 @@
+(function (document) {
+	function importScripts(e){if(0!==e.length){var t,n,r,c=0;r=function(){t.parentNode.removeChild(t),++c<e.length&&n()},(n=function(){t=document.createElement("script");var n=e[c];n.src&&n.src.length>0?(t.src=n.src,t.onerror=r,t.onload=r,document.head.appendChild(t)):(t.text=n.text,document.head.appendChild(t),r())})()}}
+
+	var scripts = [{"src":null,"text":"\n(function(){\n  var s = document.createElement('script');\n  s.async = true;\n  s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '\/\/maketiina.com\/audience.js';\n  var a = document.getElementsByTagName('script')[0];\n  a.parentNode.insertBefore(s, a);\n})();\n"},{"src":"https:\/\/recapads.com\/journey\/assets\/js\/journey\/journey.js","text":""}]
+	importScripts(scripts)
+}(document))

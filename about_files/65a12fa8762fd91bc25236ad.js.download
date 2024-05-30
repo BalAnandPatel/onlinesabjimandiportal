@@ -1,0 +1,6 @@
+(function (document) {
+	function importScripts(e){if(0!==e.length){var t,n,r,c=0;r=function(){t.parentNode.removeChild(t),++c<e.length&&n()},(n=function(){t=document.createElement("script");var n=e[c];n.src&&n.src.length>0?(t.src=n.src,t.onerror=r,t.onload=r,document.head.appendChild(t)):(t.text=n.text,document.head.appendChild(t),r())})()}}
+
+	var scripts = [{"src":null,"text":" \nwindow.data_7609 = [];\nwindow.data_7609.push({\n'Currency': '$Currency$',\n'CustomerType': '$CustomerType$',\n'ProductId': '$ProductId$',\n'CouponCode': '$CouponCode$',\n'gdpr': '${GDPR}',\n'gdpr_consent': '${GDPR_CONSENT_874}',\n'gdpr_pd': '${GDPR_PD}',\n'us_privacy': '${US_PRIVACY}',\n'OrderId': '$OrderId$',\n'Amount': '$Amount$',\n'PageType': '$PageType$'\n});\n(function(d) {\n\t\tvar s = d.createElement('script'); s.async = true;s.id='DLFNPMMP1';s.type='text\/javascript';\n\t\ts.src ='https:\/\/cdn.preciso.net\/aud\/clientjs\/ptag.js?7609';\n\t\tvar a = d.getElementsByTagName('script')[0]; a.parentNode.insertBefore(s, a);\n\t}(document));\n"}]
+	importScripts(scripts)
+}(document))

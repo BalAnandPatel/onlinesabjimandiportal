@@ -1,0 +1,37 @@
+(async() => {
+  let clickId = getCookie("charles-ldgaqplopq");
+  if (!clickId || clickId === '') clickId = "2319a3a4-fc09-461a-9bfd-11b78151e6b8";
+
+  const expires = (new Date(Date.now() + 30 * 86400 * 1000)).toUTCString();
+  document.cookie = "charles-ldgaqplopq" + '=' + clickId + '; expires=' + expires + 86400 +
+      ';path=/';
+
+  const data = {
+    url: window.location.href,
+    referrer: document.referrer,
+    unique_id: clickId,
+  };
+
+  await fetch("https://charles.ldgaqplopq.com" + "/ftrees", {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  function getCookie(cname) {
+    const name = cname + '=';
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+})();

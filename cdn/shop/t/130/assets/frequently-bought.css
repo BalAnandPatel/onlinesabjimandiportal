@@ -1,0 +1,15 @@
+@media (min-width:768px){
+  .frequently-bought-container{
+    border-top:1px solid var(--horizontal-section-divider);
+  }
+}
+@media (max-width:768px){
+  .t4s-container-frequently-bought:has(.cbb-frequently-bought-container){
+     border-top:8px solid var(--t4s-border);
+  }
+  .frequently-bought-column-left,
+   .frequently-bought-column-right{
+      padding-left:0;
+      padding-right:0;
+     }
+}

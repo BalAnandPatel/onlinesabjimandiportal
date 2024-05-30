@@ -1,0 +1,24 @@
+.main_content_wrapper{
+  display:flex;
+  overflow:auto;
+  width: 100%;
+  scrollbar-width: none !important;
+  justify-content: space-between;
+}
+.container-icon-next,
+.container-icon-back {
+  display:block;
+  position:absolute;
+}
+.container-icon-next{
+  right:-5px;
+}
+.container-icon-back{
+  left:-3px;
+}
+@media (max-width: 768px) {
+  .container-icon-next,
+  .container-icon-back {
+    display:none !important;
+  }
+}

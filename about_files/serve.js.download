@@ -1,0 +1,59 @@
+(function(){var w = window, l = location, u = window.location.href, dType = detectDevice(), e = 'viewHome', uid = uxid(), c, f;
+const url = 'https://clixrift.com/serve/park/part.php';
+const pUrl = 'https://clixrift.com/serve/park/trail/';
+const pParam = ['uid', 'cid'];
+function detectDevice() {
+  const userAgent = navigator.userAgent;
+  if (/Mobi/.test(userAgent) || /Android/.test(userAgent) || /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+    return "Mobile";
+  }
+  if (/Tablet|iPad/i.test(userAgent)) {
+    return "Tablet";
+  }
+  return "Desktop";
+}
+function uxid() {
+    var dateTime = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = (dateTime + Math.random() * 16) % 16 | 0;
+      var d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;  
+}
+var uid = uxid();
+
+c = [];
+c.push({
+  event: "viewPage",
+  uxid: uid,
+  page: u,
+  deviceType:dType
+});
+
+f = {};
+f.data = c;
+fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(f)
+})
+.then((res) => res.json())
+.then(response => {
+  var id = response.id;
+  var cId = response.cid;
+  var iDs = [uid, id];
+  callPixel(pUrl, pParam, iDs);
+})
+.catch(error => {
+});
+function callPixel(ca, da , iDs){
+  var i = document.createElement('script');
+  i.id = '__1x77809_45';
+  i.src = ca+iDs[1]+'.js?'+da[0]+'='+iDs[0]+'&'+da[1]+'='+iDs[1];
+  i.async = true;
+  document.head.appendChild(i);
+}
+})();

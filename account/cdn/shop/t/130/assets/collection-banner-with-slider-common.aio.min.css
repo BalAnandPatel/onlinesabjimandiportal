@@ -1,0 +1,5 @@
+/*
+Generated time: September 26, 2023 07:20
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+.banner-collection--img img{height:100px;border-radius:4px}.collection-mobile{display:none}@media(max-width:768px){.banner-collection--img img{min-width:320px}.collection-desktop{display:none!important}.collection-mobile{display:flex!important}}@media (min-width:768px){.collection-desktop{display:flex}.collection-mobile{display:none!important}}

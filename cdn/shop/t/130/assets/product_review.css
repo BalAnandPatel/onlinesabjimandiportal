@@ -1,0 +1,21 @@
+.product-review-container{
+  padding-top:15px;
+}
+
+@media (min-width:768px){
+  .product-review-container{
+    border-top:1px solid var(--horizontal-section-divider);
+    padding-top:15px;
+  }
+}
+
+@media (max-width:768px){
+  .t4s-container-product-review{
+      border-top:8px solid var(--t4s-border);
+  }
+  .product-review-column-left,
+  .product-review-column-right{
+      padding-left:0;
+      padding-right:0;
+   }
+}

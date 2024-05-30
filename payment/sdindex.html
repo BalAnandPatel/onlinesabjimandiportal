@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/pay.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <form  method="POST" action="pay.php">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" name="name" placeholder="john deo" autocomplete="off">
+                </div>
+                <div class="inputBox">
+                    <span>Contact :</span>
+                    <input type="number" required name="contact" placeholder="john deo" autocomplete="off">
+                </div>
+                
+                    <input type="hidden" name="order_id" placeholder="john deo" autocomplete="off">
+                    <input type="hidden" name="amount" value="1" autocomplete="off">
+             
+                <div class="inputBox">
+                    <span>address :</span>
+                    <textarea rows="3" cols="50" name="address" style=" outline-color:green!important;" placeholder="room - street - locality"></textarea>
+                </div>
+                
+               
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">&nbsp;</h3>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" required name="email" placeholder="example@example.com" autocomplete="off">
+                </div>
+              
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" name="city" placeholder="mumbai" autocomplete="off">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" name="state" placeholder="india" autocomplete="off">
+                    </div>
+                    <div class="inputBox">
+                        <span>zip code :</span>
+                        <input type="text" name="zip" placeholder="123 456" autocomplete="off">
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+
+        <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+</div>    
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function($) 
+    {
+        var form = $('#checkout-selection');
+        form.attr('action', 'pay.php?checkout=automatic');
+    });
+</script> -->
+</body>
+</html>

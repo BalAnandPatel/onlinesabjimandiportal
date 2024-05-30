@@ -1,0 +1,233 @@
+.birthday-offer-popup-content {
+  display: none;
+  position: fixed;
+  left: 50%;
+  width: 360px;
+  background-color: var(--t4s-light-color);
+  z-index: 9999999;
+  overflow: hidden;
+  transition: 0.5s;
+  border-radius: 10px 10px 0 0;
+}
+.bkg_png{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-top:10px;
+}
+.offer-divider {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.offer-heading-images {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  gap:16px;
+  align-items:center;
+}
+.offer-heading-images .img-2 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.offer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.offer-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.offer-heading .info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  color: var(--free-gift-ann-head);
+  font-size: 14px;
+  font-weight: 400;
+}
+.left-offer-wrapper {
+  border-radius: 8px;
+  background-color: var(--free-gift-ann-off1-bkg);
+}
+.right-offer-wrapper {
+  border-radius: 8px;
+  background-color: var(--free-gift-ann-off2-bkg);
+}
+.left-offer-inner-wrapper {
+  height: 180px;
+  width: 154px;
+  border-radius: 8px;
+  background: linear-gradient(
+    99deg,
+    #e8ce9b 0%,
+    #ecd7ac 34.54%,
+    #e7ce9f 69.12%,
+    #e3c899 100%
+  );
+  padding: 12px 0 0 12px;
+}
+.right-offer-inner-wrapper {
+  height: 180px;
+  width: 154px;
+  border-radius: 8px;
+  background: linear-gradient(99deg, #FFDCE5 0%, #FFC3CE 34.54%, #FAC4CE 69.12%, #FEA8B8 100%), #FFF;
+  padding:14px 12px 0;
+}
+
+.offer-valid {
+  color: var(--free-gift-ann-head-sub);
+  margin-top:8px;
+}
+button.continue-shopping {
+  width: 328px;
+  height: 44px;
+  border-radius: 6px;
+  padding: 10px 67px;
+  background-color: var(--button-bkg);
+  border: none;
+  color: var(--t4s-text-normal);
+  font-weight:600;
+
+}
+.popup-offer-footer{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.popup-offer-details{
+  color:var(--free-gift-ann-head);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom:20px;
+}
+.text-highlight{
+  font-weight:600;
+}
+.birthday-offer-popup-close-button{
+  position:absolute;
+  cursor:pointer;
+  top:16px;
+  right:16px;
+}
+.left-offer-inner-wrapper .info-container{
+  color: var(--cart-free-gift-card-clr);
+  display:flex;
+  flex-direction:column;
+}
+.left-offer-inner-wrapper .info-container .heading{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  text-align:left;
+}
+.left-offer-inner-wrapper .info-container .sub-heading{
+  font-size: 12px;
+  text-align:left;
+  margin-top:6px;
+  line-height:normal;
+}
+.left-offer-wrapper .footer-text{
+  font-size:10px;
+  color: var(--cart-free-gift-card-clr);
+  padding:8px;
+}
+.right-offer-inner-wrapper .info-container{
+  color: var(--cart-offers-banner-clr);
+  display:flex;
+  flex-direction:column;
+}
+.right-offer-inner-wrapper .info-container .heading{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  text-align:left;
+}
+.right-offer-inner-wrapper .info-container .sub-heading{
+  font-size: 12px;
+  text-align:left;
+  margin-top:6px;
+  line-height:normal;
+}
+.right-offer-wrapper .footer-text{
+  font-size:10px;
+  color: var(--cart-offers-banner-clr);
+  padding:8px 12px;
+}
+.offer-heading-images .img-1{
+  height:40px;
+  width:40px;
+}
+.offer-heading-images .img-2{
+  height:32px;
+  width:32px;
+}
+.offer-heading-images .img-3{
+  height:22px;
+  width:90px;
+}
+.left-offer-inner-wrapper .icon-container .img-1,
+.right-offer-inner-wrapper .icon-container .img-1
+{
+  height: 27px;
+  width: 50px;
+}
+.left-offer-inner-wrapper .icon-container .img-2{
+  width: 82px;
+  height: 53px;
+  mix-blend-mode: multiply;
+  filter: contrast(1);
+}
+
+.right-offer-inner-wrapper .icon-container .img-2
+{
+  height:50px;
+  width:53px;
+  mix-blend-mode: multiply;
+  filter: contrast(1);
+}
+@media (min-width: 768px) {
+  .birthday-offer-popup-content {
+    top: 50%;
+    border-radius: 4px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+  }
+  .head-border{
+    display:none;
+  }
+}
+@media (max-width: 768px) {
+  .birthday-offer-popup-content {
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px 20px;
+  }
+  .birthday-offer-popup-content .head-border-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    margin-top:0;
+  }
+   .head-border{
+    width: 50px;
+    height: 5px;
+    background: var(--mb-nav-vertical-divider-bg);
+    border-radius: 10px;
+  }
+}

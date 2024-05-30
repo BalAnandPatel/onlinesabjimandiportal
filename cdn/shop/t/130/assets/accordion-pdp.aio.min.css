@@ -1,0 +1,5 @@
+/*
+Generated time: September 26, 2023 07:20
+This file was created by the app developer. Feel free to contact the original developer with any questions. It was minified (compressed) by AVADA. AVADA do NOT own this script.
+*/
+.t4s-tab__title{display:flex;justify-content:space-between;align-items:center;}.t4s-tab__title .t4s-tab__text{font-size:16px;font-weight:500;line-height:normal;}.t4s-tab__title .t4s-tab__icon{position:relative;flex:0 0 auto;color:#7A7A7A}.t4s-tab__icon:after,.t4s-tab__icon:before{position:absolute;content:"";top:50%;left:50%;-webkit-transform:translate(-50%,-50%) rotate(-90deg);transform:translate(-50%,-50%) rotate(-90deg);background-color:currentColor;transition:transform .35s ease-in-out,opacity .35s ease-in-out,-webkit-transform .35s ease-in-out;width:15px;height:2px;opacity:1}.t4s-tab__icon:after{height:15px;width:2px}.t4s-active>.t4s-tab__title>.t4s-tab__icon:after,.t4s-active>.t4s-tab__title>.t4s-tab__icon:before{transform:translate(-50%,-50%) rotate(90deg)}.t4s-active>.t4s-tab__title>.t4s-tab__icon:before{opacity:0}@media screen and (max-width:749px){.t4s-tab__title .t4s-tab__text{padding:0}}

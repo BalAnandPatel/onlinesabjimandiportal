@@ -1,0 +1,33 @@
+.bank-offer-container {
+  margin-top: var(--mg-bo-top);
+  margin-bottom: var(--mg-bo-bottom);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.bank_offers_head{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.bank-offer-image img{
+  border-radius:4px;
+  min-width:280px;
+}
+.bank_offers_content{
+  position:relative;
+}
+@media (min-width: 768px) {
+  .bank-offer-image img{
+    max-width:100%;
+  }
+}
+@media (max-width: 768px) {
+  .bank-offer-container {
+    margin-top: var(--mg-bo-top-mb);
+    margin-bottom: var(--mg-bo-bottom-mb);
+  }
+  .bank-offer-image img{
+    max-width:100%;
+  }
+}
