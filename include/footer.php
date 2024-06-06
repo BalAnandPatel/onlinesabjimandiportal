@@ -122,32 +122,32 @@
                                 <div class="t4s-footer-menu t4s-footer-menu-style1" style="--menu-mgb:px;--menu-mgb-mb:px;">
                                     <ul class="t4s-footer-linklist">
                                         <li>
-                                            <a href="pages/about-us.html" class="t4s-footer-link ">
+                                            <a href="about.php" class="t4s-footer-link ">
                                                 About Us
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="policies/terms-of-service.html" class="t4s-footer-link ">
+                                            <a href="term.php" class="t4s-footer-link ">
                                                 Terms of Service
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="policies/refund-policy.html" class="t4s-footer-link ">
+                                            <a href="refundpolicy.php" class="t4s-footer-link ">
                                                 Refund policy
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="pages/avada-sitemap.html" class="t4s-footer-link ">
+                                            <a href="#ourteam.html" class="t4s-footer-link ">
                                             Our Team
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="pages/avada-sitemap.html" class="t4s-footer-link ">
+                                            <a href="#faq.php" class="t4s-footer-link ">
                                             FAQs
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="pages/avada-sitemap.html" class="t4s-footer-link ">
+                                            <a href="#testimonial.php" class="t4s-footer-link ">
                                             Client Testimonials
                                             </a>
                                         </li>
@@ -167,9 +167,9 @@
                             </div>
                             <div data-footer-content class="t4s-footer-content">
                                 <p data-lh="0" data-lh-md="24" data-lh-lg="24" class="t4s-text-bl t4s-fnt-fm-inherit t4s-font-italic-false t4s-hidden-mobile-false t4s-br-mb-false t4s-text-shadow-false" style="--animation: ;--delay-animation:s;--text-cl:#878787;--text-fs:14px;--text-fw:400;--text-lh:24px;--text-ls:0px;--text-mgb:18px;--text-fs-mb:16px;--text-lh-mb:0px;--text-ls-mb:0px;--text-mgb-mb:18px;">
-                                    Subscribe to our newsletter and get 10% off your first purchase</p>
+                                    Subscribe to our newsletter</p>
                                 <div class="t4s-newsletter-parent t4s_newsletter_se t4s-newsl-des-1 t4s-newsl-small t4s-text-start t4s-hidden-mobile-false" style="--animation: ;--delay-animation:s;--input-cl: #878787;--border-cl: #000000;--btn-cl: #ffffff;--btn-bg-cl: #222222;--btn-hover-cl: #ffffff;--btn-hover-bg-cl: #56cfe1; --mgb: 22px;--mgb-mb: 20px;--form-width:0px;--form-width-mb:0px;">
-                                    <form method="post" action="https://eracreatix.com/contact#t4s-form-footer-12" id="t4s-form-footer-12" accept-charset="UTF-8" class="t4s-pr t4s-z-100 t4s-newsletter__form" data-form-mail-agree=""><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="contact[tags]" value="newsletter">
+                                    <form method="post" action="#https://onlinesabjimandi.com" id="t4s-form-footer-12" accept-charset="UTF-8" class="t4s-pr t4s-z-100 t4s-newsletter__form" data-form-mail-agree=""><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="contact[tags]" value="newsletter">
                                         <div class="t4s-newsletter__fields">
                                             <div class="t4s-newsletter__inner t4s-row t4s-g-0 t4s-pr t4s-oh ">
                                                 <div class="t4s-col t4s-col-item is--col-email"><input type="email" name="contact[email]" placeholder="Your email address" value="" class="t4s-text-center t4s-text-md-start t4s-newsletter__email" required="required"></div>
@@ -208,28 +208,23 @@
                                 <div class="t4s-footer-menu t4s-footer-menu-style2" style="--menu-mgb:px;--menu-mgb-mb:px;">
                                     <ul class="t4s-footer-linklist">
                                         <li>
-                                            <a href="policies/refund-policy.html" class="t4s-footer-link ">
+                                            <a href="refundpolicy.php" class="t4s-footer-link ">
                                                 Refund Policy
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="policies/shipping-policy.html" class="t4s-footer-link ">
+                                            <a href="shippingpolicy.php" class="t4s-footer-link ">
                                                 Shipping Policy
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="policies/refund-policy.html" class="t4s-footer-link ">
-                                                Exchange Policy
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="policies/terms-of-service.html" class="t4s-footer-link ">
-                                                Terms of Service
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="policies/privacy-policy" class="t4s-footer-link ">
+                                            <a href="privacy.php" class="t4s-footer-link ">
                                                 Privacy Policy
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="term.php" class="t4s-footer-link ">
+                                                Terms of Service
                                             </a>
                                         </li>
                                     </ul>

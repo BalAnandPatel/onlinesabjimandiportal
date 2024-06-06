@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 				</a>
 
 				<a class="brand" href="index.html">
-					Eracreatix | Admin
+					Online Sabji Mandi | Admin
 				</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">
@@ -119,7 +119,7 @@ if (isset($_POST['submit'])) {
 		<div class="container">
 
 
-			<b class="copyright">&copy; 2024 Eracreatix </b> All rights reserved.
+			<b class="copyright">&copy; 2024 Online Sabji Mandi </b> All rights reserved.
 		</div>
 	</div>
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

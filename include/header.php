@@ -27,7 +27,7 @@ if (isset($_SESSION['id'])) {
     <title>Online Sabji Mandi &amp; Online Sabji At Best Prices &ndash; Online Sabji Mandi</title>
     <meta name="description" content="Buy Best Vegitalbe on online Plateform &amp; Best Quality Product at your door. Safe Delivery every product.">
     <meta name="keywords" content="buy home decor, bedsheets, towels, kitchen, mugs online" />
-    <meta name="author" content="House of Era Creatix">
+    <meta name="author" content="Vegitable Market">
 
     <meta property="og:site_name" content="Online Sabji Mandi">
     <meta property="og:url" content="https://onlinesabjimandi.com/">
@@ -342,13 +342,13 @@ if (isset($_SESSION['id'])) {
         <div data-tab-mb-content="" id="shopify-mb_nav" class="t4s-mb-tab__content is--active">
             <div id="shopify-section-mb_nav" class="shopify-section t4s-sp-section-mb-nav">
                 <ul id="menu-mb__ul" class="t4s-mb__menu" data-section-id="mb_nav">
-
-
+                       <li id="item_mb_nav-0" class="t4s-menu-item t4s-item-level-0 t4s-menu-item-has-children t4s-only_icon_false">
+                            Home
+                        </li>
                     <?php
                     $sql = mysqli_query($con, "select *  from category limit 6");
                     while ($row = mysqli_fetch_array($sql)) {
                     ?>
-
                         <li id="item_mb_nav-0" class="t4s-menu-item t4s-item-level-0 t4s-menu-item-has-children t4s-only_icon_false">
                             <a href="collections.php?cid=<?= $row['id']; ?>" target="_self">
                                 <span class="t4s-nav_link_txt t4s-d-flex t4s-align-items-center"><?= $row['categoryName']; ?></span>
@@ -364,7 +364,7 @@ if (isset($_SESSION['id'])) {
                         </li>
 
                     <?php } ?>
-
+                    
                     <li id="item_6085db0f-af41-41b9-ae4b-e133255307e9" class="t4s-menu-item t4s-item-level-0">
                         <a href="" target="_self">Return/Exchange</a>
                     </li>

@@ -1,14 +1,18 @@
 <?php
 include "include/header.php";
 ?>
-  <div class=" scroll-trigger animate--slide-in">
-    <div class="aboutus-web-heading">
-<div class="web-header">
-<h1>Refund Policy</h1>
-</div>
-<div class="m-3">
-<div>
-<p>At Era Creatix, we want you to be completely satisfied with your purchase. If you're not happy with your order for any reason, we offer a straightforward refund policy outlined below:
+
+<main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <div id="shopify-section-template--16885348434166__41e67383-d98d-47ec-a5d4-87e556f2840d" class="shopify-section t4s-container t4s-heading-container">
+        <link rel="stylesheet" href="cdn/shop/t/130/assets/collection-heading.aio.min.css" media="all">
+        <div>
+            <div class="collection-heading-container">
+                <div class="collection-heading-introduction">
+                <div class="web-header"><h1>Refund Policy</h1></div>
+                <div>
+
+<p>Vegetables/Fruits get damaged during Transit. If the received product is damaged then kindly send the picture on WhatsApp number 9793800728 or email us on contact@onlinesabjimandi.com along with the order number.
+
 </p>
 1. Eligibility for Refunds
 <p>
@@ -17,7 +21,7 @@ Customized or personalized items may not be eligible for a refund unless they ar
 </p>
 2. Refund Process
 <p>
-To initiate a refund, please contact us within [number of days] days of receiving your item. You can reach us via email at eracreatix@gmail.com or through our "Get in Touch" page.
+To initiate a refund, please contact us within a days of receiving your item. You can reach us via email at contact@onlinesabjimandi.com or through our Contact no.
 </p>
 <p>Please provide your order number and a brief explanation of why you're requesting a refund.</p>
 
@@ -36,13 +40,17 @@ Please package the item securely to prevent damage during return shipping.</p>
 <p>Certain items may not be eligible for refunds, such as personalize or customize things and some other items </p>
 6. Contact Us
 <p>
-If you have any questions or concerns about our refund policy, please contact us at eracreatix@gmail.com. Our customer support team is here to assist you.</p>
+If you have any questions or concerns about our refund policy, please contact us at contact@onlinesabjimandi.com. Our customer support team is here to assist you.</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<?php
-include "include/footer.php";
-?>
+                    </div>
+                
+
+            </div>
+
+        </div>
+    </div>
+
+
+        <?php
+        include "include/footer.php";
+        ?>

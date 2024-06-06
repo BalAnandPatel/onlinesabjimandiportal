@@ -7,13 +7,11 @@ include "include/header.php";
         <div>
             <div class="collection-heading-container">
                 <div class="collection-heading-introduction">
-                <div class="web-header"><h1>About Us</h1></div>
+                <div class="web-header"><h1>Shiping Schedule</h1></div>
                           <div class="web-desc">
-                          About
-
-<strong>Fruits & Vegetables Online From Onlinesabjimandi.com</strong> 
-
-Online Sabji Mandi is an online fruits and vegetable store. All the customers from Jaunpur can order fruits & veggies from their homes & get delivery of Farm Fresh Fruits & Vegetable at their doorstep. We offer a wide range of fruits and vegetables along with exotic fruits and exotic vegetables for daily needs at the lowest price. Nowadays With the increase in online ordering of vegetables and fruits, the biggest issues faced by most of the customers are the non-delivery of fresh vegetables or the delivery of rotten vegetables. As a practice, traditional retailers buy in bulk and store for future requirements, with the absence of proper inventory management and low shelf-life, vegetables tend to get rotten resulting in the delivery of poor quality vegetables. To overcome this issue onlinesabjimandi.com is dealing with a zero inventory model as we have tied up with local farmers, on a daily basis we are purchasing fresh vegetables and fruits which are handpicked to ensure our customers get farm fresh quality at the lowest rate.
+                         <p> Currently, We are delivering Fruits and vegetables in UTTAR PRADESH (Jaunpur, Pratapgrah, Allahabad , Varanashi).</p>
+                          <p>Same Day and Next Day delivery of all orders which make us to deliver the fresh produce on daily basis.
+</p>
                         </div>
 
                     </div>
