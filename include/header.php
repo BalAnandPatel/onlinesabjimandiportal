@@ -24,24 +24,24 @@ if (isset($_SESSION['id'])) {
     <link rel="preconnect" href="https://cdn.shopify.com/" crossorigin>
     <link rel="shortcut icon" type="image/png" href="cdn/shop/files/apple-icon-152x152d3ee.png?v=1674062412&amp;width=32">
     <link rel="apple-touch-icon-precomposed" type="image/png" sizes="152x152" href="cdn/shop/files/apple-icon-152x152c78b.png?v=1674062412&amp;width=152">
-    <title>Buy Best Home Decor Items &amp; Essentials Online At Best Prices &ndash; Era Creatix</title>
-    <meta name="description" content="Home Décor- Buy Home Decorative Items &amp; essentials Online in India. Choose from a wide range of premium home decor products at Era Creatix. Buy house decoration items online at best prices.">
+    <title>Online Sabji Mandi &amp; Online Sabji At Best Prices &ndash; Online Sabji Mandi</title>
+    <meta name="description" content="Buy Best Vegitalbe on online Plateform &amp; Best Quality Product at your door. Safe Delivery every product.">
     <meta name="keywords" content="buy home decor, bedsheets, towels, kitchen, mugs online" />
     <meta name="author" content="House of Era Creatix">
 
-    <meta property="og:site_name" content="Era Creatix">
-    <meta property="og:url" content="https://eracreatix.com/">
-    <meta property="og:title" content="Buy Best Home Decor Items &amp; Essentials Online At Best Prices">
+    <meta property="og:site_name" content="Online Sabji Mandi">
+    <meta property="og:url" content="https://onlinesabjimandi.com/">
+    <meta property="og:title" content="Buy Best Quality Vegitale &amp; Vegitable At Best Prices">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Home Décor- Buy Home Decorative Items &amp; essentials Online in India. Choose from a wide range of premium home decor products at Era Creatix. Buy house decoration items online at best prices.">
-    <meta property="og:image" content="http://eracreatix.com/media/logoo.png">
-    <meta property="og:image:secure_url" content="https://eracreatix.com/media/logoo.png">
+    <meta property="og:description" content="Best Quality Vegitable &amp; Best Quality Vegitable in your Door.">
+    <meta property="og:image" content="http://onlinesabjimandi.com/media/logoo.png">
+    <meta property="og:image:secure_url" content="https://onlinesabjimandi.com/media/logoo.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="536">
-    <meta name="twitter:site" content="@eracreatix">
+    <meta name="twitter:site" content="@onlinesabjimandi">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Buy Best Home Decor Items &amp; Essentials Online At Best Prices">
-    <meta name="twitter:description" content="Home Décor- Buy Home Decorative Items &amp; essentials Online in India. Choose from a wide range of premium home decor products at Era Creatix. Buy house decoration items online at best prices.">
+    <meta name="twitter:title" content="Buy Best Quality Vegitable &amp; Best Quality Vegitable at your Door">
+    <meta name="twitter:description" content="Vegitable and Fruits at your door &amp; Buy Vegitable for your Home Function.">
     <meta name="facebook-domain-verification" content="xdlnd89oajo8ige0bstdecpvqupqa8">
     <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/63225266422/digital_wallets/dialog">
 
@@ -265,7 +265,7 @@ if (isset($_SESSION['id'])) {
                                 <div class="return">
                                     <a href="">Return/Exchange</a>
                                     <i class="las la-envelope fs__14 ml__15"></i>
-                                    <a class="cg" href="mailto:eracreatix@gmail.com">eracreatix@gmail.com</a>
+                                    <a class="cg" href="mailto:onlinesabjimandi@gmail.com">onlinesabjimandi@gmail.com</a>
                                 </div>
                             </div>
                         </div>
