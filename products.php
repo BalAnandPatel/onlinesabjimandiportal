@@ -1,6 +1,5 @@
 <?php
 include "include/header.php";
-
 if (isset($_POST['submit'])) {
     $qty = $_POST['quality'];
     $price = $_POST['price'];
@@ -10,9 +9,11 @@ if (isset($_POST['submit'])) {
     $review = $_POST['review'];
     mysqli_query($con, "insert into productreviews(productId,quality,price,value,name,summary,review) values('$pid','$qty','$price','$value','$name','$summary','$review')");
 }
-
-
 ?>
+<link href="cdn/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
 
 <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
     <div id="shopify-section-template--16885347778806__breadcrumb" class="shopify-section t4s-section t4s-pr_breadcrumbs">
@@ -245,6 +246,23 @@ if (isset($_POST['submit'])) {
                                             }
                                         </script>
                                     </div>
+                                    <br>
+                                    <p>
+                                        <?php if (!empty($rws['size'])) {
+                                            echo "Size - " . $rws['size'];
+                                        } ?>
+                                    </p>
+                                    <div style="display: flex;">
+                                        Color -
+                                        <?php if (!empty($rws['color'])) {
+                                            $color = explode(',', $rws['color']);
+                                            foreach ($color as $item) {
+                                        ?>
+                                                <p style="background-color: <?= $item ?>; width: 30px;height:30px;margin: 5px"></p>
+                                        <?php }
+                                        } ?>
+                                    </div>
+
                                     <div id="t4s-delivery" class="t4s-pr_delivery  t4s-ch t4s-dn section delivery-return-section" data-order-delivery="{ &quot;timezone&quot;:false, &quot;format_day&quot;:&quot;t44, t45 t46&quot;, &quot;mode&quot;:&quot;1&quot;, &quot;cut_day&quot;: &quot;SAT,SUN&quot;, &quot;estimateStartDate&quot;: 3, &quot;estimateEndDate&quot;: 5, &quot;time&quot;:&quot;16:00:00&quot;, &quot;hideWithPreorder&quot;:true }" style="display: block;">
                                         <link href="cdn/shop/t/130/assets/ani-atc.min.css" rel="stylesheet" media="all" onload="this.media='all'">
                                         <div class="section">
@@ -595,9 +613,7 @@ if (isset($_POST['submit'])) {
                                                     <div class="product-highlight-content">
                                                         <div class="trust-banner-container">
                                                             <span>
-
                                                                 <p><?= $rws['producthighlight']; ?></p>
-
                                                             </span>
                                                         </div>
                                                     </div>
@@ -763,25 +779,429 @@ if (isset($_POST['submit'])) {
             }
         </script>
 
-        <!--<link href="//vaaree.com/cdn/shop/t/130/assets/product-tabs.aio.min.css?v=150022279741132493061711985986" rel="stylesheet" type="text/css" media="all" />
-<style data-shopify>.t4s-product-tabs-wrapper-template--16885347778806__main {
-  --bg-tabs: #f6f6f8;
-  --bg-tabs-mb: #ffffff;
-}</style><div class="t4s-product-tabs-wrapper t4s-col-item t4s-product-tabs-wrapper-template--16885347778806__main is--tab-design__accordion is--tab-design-mb__accordion is--tab-layout__content_full is--tab-position__external">
-  <div class="t4s-container" timeline hdt-reveal="slide-in"><div
-              class="t4s-tabs t4s-type-tabs t4s-accordion-mb-true"
-              data-t4s-tabs
-              data-t4s-accordion-pr
-            >
-              <div class="t4s-tab-wrapper" data-t4s-tab-wrapper>
-                <a id="t44_a6872568-6cc2-4467-bb91-a8c5e76a3b53" href="#t4s_tab_a6872568-6cc2-4467-bb91-a8c5e76a3b53" rel="nofollow" class="t4s-tab__title t4s-fwm t4s-ch" data-t4s-tab-item data-no-instant><span class="t4s-tab__text">Additional Info</span><span class="t4s-tab__icon"></span></a>
-                <div id="t4s_tab_a6872568-6cc2-4467-bb91-a8c5e76a3b53" class="t4s-rte t4s-tab-content" data-t4s-tab-content>
-                  <p><strong>Seller Name:</strong> <br/>AMS Retail LLP</p><p><strong>Seller Address:<br/></strong><span class="metafield-multi_line_text_field">Floor No 1, 1 and 2, Plot No - 69D, Amar Niwas, Bhulabhai Desai Road, Cumballa Hill, Mumbai, Mumbai, Maharashtra, 400026</span></p><p><strong>Manufacturer Details:<br/></strong><span class="metafield-multi_line_text_field">Floor No 1, 1 and 2, Plot No - 69D, Amar Niwas, Bhulabhai Desai Road, Cumballa Hill, Mumbai, Mumbai, Maharashtra, 400026</span></p><p><strong>Importer Details: <br/></strong></p><p><strong>Packer Details:<br/></strong><span class="metafield-multi_line_text_field">Floor No 1, 1 and 2, Plot No - 69D, Amar Niwas, Bhulabhai Desai Road, Cumballa Hill, Mumbai, Mumbai, Maharashtra, 400026</span></p><p><strong>Country Of Origin:<br/></strong>India</p><p><strong>Grievance Redressal:</strong><br/>Subject: Contact Seller - AMS Retail LLP<br/>Write To: DHI Innovations, Bannerghatta Main Rd, Venugopal Reddy Layout, Arekere, Bengaluru, Karnataka 560076</p>
-                  
+        <style>
+            .rated {
+                color: orange;
+            }
+
+            .rate {
+                float: left;
+                height: 46px;
+                padding: 0 10px;
+            }
+
+            .rate:not(:checked)>input {
+                position: absolute;
+                top: -9999px;
+            }
+
+            .rate:not(:checked)>label {
+                float: right;
+                width: 1em;
+                overflow: hidden;
+                white-space: nowrap;
+                cursor: pointer;
+                font-size: 30px;
+                color: #ccc;
+            }
+
+            .rate:not(:checked)>label:before {
+                content: '★ ';
+            }
+
+            .rate>input:checked~label {
+                color: #ffc700;
+            }
+
+            .rate:not(:checked)>label:hover,
+            .rate:not(:checked)>label:hover~label {
+                color: #deb217;
+            }
+
+            .rate>input:checked+label:hover,
+            .rate>input:checked+label:hover~label,
+            .rate>input:checked~label:hover,
+            .rate>input:checked~label:hover~label,
+            .rate>label:hover~input:checked~label {
+                color: #c59b08;
+            }
+
+            .progress-label-left {
+                float: left;
+                margin-right: 0.5em;
+                line-height: 1em;
+            }
+
+            .progress-label-right {
+                float: right;
+                margin-left: 0.3em;
+                line-height: 1em;
+            }
+
+            .star-light {
+                color: #e9ecef;
+            }
+        </style>
+        <div class="container">
+            <h5 class="mt-5 mb-5">Review & Ratings</h5>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4 text-center">
+                            <h1 class="text-warning mt-4 mb-4">
+                                <b><span id="average_rating">0.0</span> / 5</b>
+                            </h1>
+                            <div class="mb-3">
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                                <i class="fas fa-star star-light mr-1 main_star"></i>
+                            </div>
+                            <h3><span id="total_review">0</span> Review</h3>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>
+                            <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h3 class="mt-4 mb-3">Write Review Here</h3>
+                            <button type="button" id="add_review" class="btn btn-primary">Review</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-             </div></div>
-</div>-->
+            </div>
+            <div class="mt-5" id="review_content"></div>
+        </div>
+
+
+        <div id="review_modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Submit Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="text-center mt-2 mb-4">
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                        </h4>
+                        <div class="form-group">
+
+                            <input type="hidden" name="user_id" value="<?php if (isset($_SESSION["id"])) echo $_SESSION["id"]; ?>" id="user_id" />
+
+                            <input type="hidden" name="business_owner" value="<?php echo $_GET['pid']; ?>" id="business_owner" />
+                            <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" autocomplete="off" />
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+                        </div>
+                        <div class="form-group text-center mt-4">
+                            <button type="button" class="btn btn-primary" id="save_review">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var rating_data = 0;
+
+            $('#add_review').click(function() {
+
+                $('#review_modal').modal('show');
+
+            });
+
+            $(document).on('mouseenter', '.submit_star', function() {
+
+                var rating = $(this).data('rating');
+
+                reset_background();
+
+                for (var count = 1; count <= rating; count++) {
+
+                    $('#submit_star_' + count).addClass('text-warning');
+
+                }
+
+            });
+
+            function reset_background() {
+                for (var count = 1; count <= 5; count++) {
+
+                    $('#submit_star_' + count).addClass('star-light');
+
+                    $('#submit_star_' + count).removeClass('text-warning');
+
+                }
+            }
+
+            $(document).on('mouseleave', '.submit_star', function() {
+
+                reset_background();
+
+                for (var count = 1; count <= rating_data; count++) {
+
+                    $('#submit_star_' + count).removeClass('star-light');
+
+                    $('#submit_star_' + count).addClass('text-warning');
+                }
+
+            });
+
+            $(document).on('click', '.submit_star', function() {
+
+                rating_data = $(this).data('rating');
+
+            });
+
+            $('#save_review').click(function() {
+
+                var user_email = $('#user_email').val();
+
+                var user_name = $('#user_name').val();
+
+                var user_id = $('#user_id').val();
+
+                var business_owner = $('#business_owner').val();
+
+                var user_review = $('#user_review').val();
+
+                if (rating_data == '') {
+                    alert("Please select star to review");
+                    return false;
+                }
+
+                if (user_name == '' || user_review == '') {
+                    alert("Please Fill Both Field");
+                    return false;
+                } else {
+                    $.ajax({
+                        url: "admin/insert_rating.php",
+                        method: "POST",
+                        data: {
+                            rating_data: rating_data,
+                            user_name: user_name,
+                            user_id: user_id,
+                            product_id: business_owner,
+                            user_review: user_review
+                        },
+                        success: function(data) {
+                            alert(data);
+                            $('#review_modal').modal('hide');
+
+                            if (data == "session_expire") {
+                                $('#signin').modal('show');
+                                return false;
+                            } else if (data == "success") {
+                                alert("Your Review & Rating Successfully Submitted");
+                            }
+                            load_rating_data();
+                        },
+                        error: function(data) {
+                            alert(data);
+                        }
+                    })
+                }
+
+            });
+
+
+            load_rating_data();
+
+            function load_rating_data() {
+                const product_id = "<?php echo $_GET['pid']; ?>";
+
+                $.ajax({
+                    url: "admin/read_product_rating.php",
+                    method: "POST",
+                    data: {
+                        product_id: product_id
+                    },
+                    dataType: "JSON",
+                    success: function(data) {
+                        // alert(data);
+                        $('#average_rating').text(data.average_rating);
+                        $('#total_review').text(data.total_review);
+
+                        var count_star = 0;
+
+                        $('.main_star').each(function() {
+                            count_star++;
+                            if (Math.ceil(data.average_rating) >= count_star) {
+                                $(this).addClass('text-warning');
+                                $(this).addClass('star-light');
+                            }
+                        });
+
+                        $('#total_five_star_review').text(data.five_star_review);
+
+                        $('#total_four_star_review').text(data.four_star_review);
+
+                        $('#total_three_star_review').text(data.three_star_review);
+
+                        $('#total_two_star_review').text(data.two_star_review);
+
+                        $('#total_one_star_review').text(data.one_star_review);
+
+                        $('#five_star_progress').css('width', (data.five_star_review / data.total_review) * 100 + '%');
+
+                        $('#four_star_progress').css('width', (data.four_star_review / data.total_review) * 100 + '%');
+
+                        $('#three_star_progress').css('width', (data.three_star_review / data.total_review) * 100 + '%');
+
+                        $('#two_star_progress').css('width', (data.two_star_review / data.total_review) * 100 + '%');
+
+                        $('#one_star_progress').css('width', (data.one_star_review / data.total_review) * 100 + '%');
+
+                        if (data.review_data.length > 0) {
+                            var html = '';
+
+                            for (var count = 0; count < data.review_data.length; count++) {
+                                html += '<div class="row mb-3">';
+
+                                // html += '<div class="col-sm-1"><div class="rounded-circle bg-secondary py-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
+
+                                html += '<div class="col-sm-12">';
+
+                                html += '<div class="card">';
+
+                                // html += '<div class="card-header d-flex align-items-center"><div class="rounded-circle bg-secondary p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">' + data.review_data[count].user_name.charAt(0) + '</h3></div><b>' + data.review_data[count].user_name + '</b>&nbsp;~&nbsp;<a class="text-decoration-underline" role="button" data-bs-toggle="collapse" data-bs-target="#collapse' + count + '" aria-expanded="true" aria-controls="collapseOne">reply</a></div>';
+                                html += '<div class="card-header d-flex align-items-center"><div class="rounded-circle bg-secondary p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">' + data.review_data[count].user_name.charAt(0) + '</h3></div><b>' + data.review_data[count].user_name + '</b></div>';
+
+                                html += '<div class="card-body">';
+
+                                for (var star = 1; star <= 5; star++) {
+                                    var class_name = '';
+
+                                    if (data.review_data[count].rating >= star) {
+                                        class_name = 'text-warning';
+                                    } else {
+                                        class_name = 'star-light';
+                                    }
+
+                                    html += '<i class="fas fa-star ' + class_name + ' mr-1"></i>';
+                                }
+
+                                html += '<br />';
+
+                                html += data.review_data[count].user_review;
+
+                                html += '</div>';
+
+                                html += '<div id="collapse' + count + '" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
+
+                                html += '<form id="reviewReplyForm" method="post">';
+
+                                html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'], 0, 1); ?></span><input type="text" id="review_reply" aria-describedby="reply" class="form-control" required /><input type="hidden" id="review_id" value=' + data.review_data[count].review_id + ' /><input type="hidden" id="reply_by" value="<?php echo $_SESSION['NAME'] ?>" /></div>';
+
+                                html += '<div class="mt-2 d-flex justify-content-end">';
+
+                                html += '<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' + count + '" aria-expanded="true" aria-controls="collapseOne">Cancel</button>';
+
+                                html += '<button type="button" class="btn btn-success mx-2" onclick="replyRatings()">Submit</button>';
+
+                                html += '</div></form>';
+
+                                html += '</div></div>';
+
+                                html += '<div class="card-footer text-right">On ' + data.review_data[count].datetime + '</div>';
+
+                                html += '</div>';
+
+                                html += '</div>';
+
+                                html += '</div>';
+                            }
+
+                            $('#review_content').html(html);
+                        }
+                    },
+                    error: function(data) {
+                        // alert(data);
+                        // alert('failed');
+                    }
+                })
+            }
+
+            function replyRatings() {
+                var review_reply = $('#review_reply').val();
+                var review_id = $('#review_id').val();
+                var reply_by = $('#reply_by').val();
+                var business_owner = $('#business_owner').val();
+                // alert(review_id); 
+                if (review_reply == '') {
+                    alert("Please Fill the required Field");
+                    return false;
+                } else {
+
+                    $.ajax({
+                        url: "admin/action/submit_rating_reply.php",
+                        method: "POST",
+                        data: {
+                            review_reply: review_reply,
+                            review_id: review_id,
+                            reply_by: reply_by,
+                            business_owner: business_owner
+                        },
+                        success: function(data) {
+                            if (data == "session_expire") {
+                                $('#signin').modal('show');
+                                return false;
+                            } else if (data == "success") {
+                                $("#reviewReplyForm").trigger('reset');
+                                alert("Reply sent Successfully");
+                            }
+
+                        }
+                    });
+                }
+            }
+        </script>
+
         <template data-icons-thumb="">
             <svg class="t4s-d-none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <symbol id="icon-thumb-video" aria-hidden="true" focusable="false" role="presentation" fill="currentColor" viewBox="0 0 10 14">
@@ -1005,166 +1425,6 @@ if (isset($_POST['submit'])) {
             }
         </style>
     </section>
-    <!-- <div id="shopify-section-template--16885347778806__frequently_bought_VxKBmx" class="shopify-section t4s-section">
-        <link href="//vaaree.com/cdn/shop/t/130/assets/frequently-bought.css?v=4336206074569771721711722350" rel="stylesheet" type="text/css" media="all">
-
-
-        <div class="t4s-container t4s-d-flex t4s-flex-wrap t4s-container-frequently-bought">
-            <div class="frequently-bought-column-left t4s-col-md-7 t4s-col-12 t4s-col-item"></div>
-            <div class="frequently-bought-column-right frequently-bought-container t4s-col-md-5 t4s-col-12 t4s-col-item">
-                <div class="cbb-frequently-bought-container cbb-desktop-view" style="width: 100%; height: 100%; clear: both; text-align: left; margin: 30px auto; padding: 10px 0px;">
-                    <h3 class="cbb-frequently-bought-title translatable" style="text-align: left; font-size: 2.4rem; font-weight: 600; margin-bottom: 5px;">Frequently Bought Together</h3>
-                    <div class="cbb-frequently-bought-discount-message-container cbb-desktop-view" style="display: none; text-align: left; padding: 0px; margin: 0px;"><span class="cbb-frequently-bought-discount-message translatable" style="display: inline-block; border-width: initial; border-style: none; border-image: initial; border-radius: 4px; font-size: 16px; font-weight: bold; padding: 5px 0px; text-decoration: none; text-transform: none;">Save money buying these products together</span></div>
-                    <div class="cbb-frequently-bought-recommendations-container">
-                        <ul class="cbb-frequently-bought-products" aria-hidden="true" role="none" style="display: inline-block; float: left; vertical-align: middle; list-style: none; padding: 0px; margin: 0px 15px 15px 0px;">
-                            <li class="cbb-frequently-bought-product" style="display: inline-block; margin-top: 10px; margin-bottom: 10px; vertical-align: middle;">
-                                <div class="cbb-frequently-bought-product-image" style="width: 80px; height: 80px; overflow: hidden; background-image: url(&quot;https://cdn.shopify.com/s/files/1/0632/2526/6422/files/Untitled-1_0001_MHMP044_01_100x100.jpg?v=1714030754&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat; float: left; margin: 0px 5px;"> </div>
-                                <div class="cbb-frequently-bought-plus-icon skiptranslate notranslate" style="user-select: none; font-size: 18px; font-weight: 200; font-family: monospace; height: 80px; width: 19px; line-height: 80px; color: rgb(0, 0, 0); text-shadow: rgba(255, 255, 255, 0.4) -1px 0px, rgba(255, 255, 255, 0.4) 0px 1px, rgba(255, 255, 255, 0.4) 1px 0px, rgba(255, 255, 255, 0.4) 0px -1px; text-align: center; float: right;">＋</div>
-                            </li>
-                            <li class="cbb-frequently-bought-product" style="display: inline-block; margin-top: 10px; margin-bottom: 10px; vertical-align: middle;"><a class="cbb-frequently-bought-product-image-link" tabindex="0" data-href="/products/jana-macrame-lampshade?variant=46279813103862" style="float: left; cursor: pointer; width: 80px; height: 80px; margin: 0px 5px;">
-                                    <div class="cbb-frequently-bought-product-image" style="width: 80px; height: 80px; overflow: hidden; background-image: url(&quot;https://cdn.shopify.com/s/files/1/0632/2526/6422/files/Untitled-1_0000_Primary_11_100x100.jpg?v=1712322855&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"> </div>
-                                </a>
-                                <div class="cbb-frequently-bought-plus-icon skiptranslate notranslate" style="user-select: none; font-size: 18px; font-weight: 200; font-family: monospace; height: 80px; width: 19px; line-height: 80px; color: rgb(0, 0, 0); text-shadow: rgba(255, 255, 255, 0.4) -1px 0px, rgba(255, 255, 255, 0.4) 0px 1px, rgba(255, 255, 255, 0.4) 1px 0px, rgba(255, 255, 255, 0.4) 0px -1px; text-align: center; float: right;">＋</div>
-                            </li>
-                            <li class="cbb-frequently-bought-product" style="display: inline-block; margin-top: 10px; margin-bottom: 10px; vertical-align: middle;"><a class="cbb-frequently-bought-product-image-link" tabindex="0" data-href="/products/chipa-floral-curtain?variant=46384836149494" style="float: left; cursor: pointer; width: 80px; height: 80px; margin: 0px 5px;">
-                                    <div class="cbb-frequently-bought-product-image" style="width: 80px; height: 80px; overflow: hidden; background-image: url(&quot;https://cdn.shopify.com/s/files/1/0632/2526/6422/files/Untitled-1_0000_DC44__1_100x100.jpg?v=1713353416&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"> </div>
-                                </a></li>
-                        </ul>
-                        <div class="cbb-frequently-bought-form" style="display: inline-block; margin-bottom: 12px;">
-                            <div class="cbb-frequently-bought-total-price-box" style="margin-bottom: 10px; margin-right: 0.5em;"><span class="cbb-frequently-bought-total-price-text translatable" style="font-weight: 400; white-space: nowrap;">Total price:</span><s class="cbb-frequently-bought-total-price-was-price" style="white-space: nowrap; margin-left: 0.25em; margin-right: 0.25em; font-weight: 400; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹5,143.00</span></s><span class="cbb-frequently-bought-total-price-regular-price" style="margin-left: 0.25em; margin-right: 0.25em; font-weight: 600; display: none;"></span><span class="cbb-frequently-bought-total-price-sale-price" style="margin-left: 0.25em; margin-right: 0.25em; font-weight: 600; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹4,544.00</span></span></div>
-                            <div class="cbb-frequently-bought-error" style="display: none; background-color: rgb(255, 182, 193); border-radius: 4px; padding: 1em; margin-bottom: 10px;"></div><button class="cbb-frequently-bought-add-button" style="font-family: Poppins; font-size: 14px; font-weight: 600; text-transform: uppercase; text-decoration: none solid rgb(255, 255, 255); text-align: center; vertical-align: baseline; max-height: 70px; letter-spacing: 0px; white-space: normal; line-height: normal; color: rgb(255, 255, 255); background: none 0% 0% / auto repeat scroll padding-box border-box rgb(232, 196, 99); box-shadow: none; border-width: 0px; border-radius: 5px; border-color: rgb(232, 196, 99); padding: 10px 25px; position: relative; display: inline-block; width: auto; margin-top: 0px; margin-left: 0px; cursor: pointer; border-style: none;"><span class="translatable">Add All to Cart</span></button>
-                        </div>
-                    </div>
-                    <ul class="cbb-frequently-bought-selector-list" style="list-style: none; display: block; clear: left; padding-left: 0px; margin-left: 0px;">
-                        <li style="list-style-type: none;"><input type="checkbox" class="cbb-frequently-bought-selector-input" id="46448138453238" name="product_8520322056438" aria-label="Selection of Vida Storage Box" checked="checked" style="appearance: checkbox; display: inline; float: none; width: auto; min-width: unset; height: auto; min-height: unset; margin-top: 0px; vertical-align: baseline;"><span class="translatable" for="46448138453238" style="display: inline; margin-left: 5px;">
-                                <h3 class="cbb-frequently-bought-selector-label-name" style="display: inline; font-weight: bold; font-size: 1em; line-height: 2em; text-decoration: none;"><span class="cbb-frequently-bought-this-item-label translatable">This item: </span><span>Vida Storage Box</span></h3>
-                            </span><s class="cbb-frequently-bought-selector-label-compare-at-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 400; display: none;"></s><span class="cbb-frequently-bought-selector-label-regular-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹2,795.00</span></span><span class="cbb-frequently-bought-selector-label-sale-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: none;"></span><span id="cbb-frequently-bought-rating-box-8520322056438" class="cbb-frequently-bought-rating-box" style="display: inline-block; margin-left: 5px;"></span></li>
-                        <li style="list-style-type: none;"><input type="checkbox" class="cbb-frequently-bought-selector-input" id="46279813103862" name="product_8463310356726" aria-label="Selection of Jana Macrame Lampshade" checked="checked" style="appearance: checkbox; display: inline; float: none; width: auto; min-width: unset; height: auto; min-height: unset; margin-top: 0px; vertical-align: baseline;"><a tabindex="0" role="link" class="cbb-frequently-bought-selector-link" href="/products/jana-macrame-lampshade?variant=46279813103862" style="font-weight: 400; display: inline; text-decoration: none;">
-                                <h3 class="cbb-frequently-bought-selector-label-name" style="display: inline; margin-left: 5px; line-height: 2em; font-weight: 400; font-size: 1em; text-decoration: none;">Jana Macrame Lampshade</h3>
-                            </a><s class="cbb-frequently-bought-selector-label-compare-at-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 400; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹1,149.00</span></s><span class="cbb-frequently-bought-selector-label-regular-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: none;"></span><span class="cbb-frequently-bought-selector-label-sale-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹1,049.00</span></span><span id="cbb-frequently-bought-rating-box-8463310356726" class="cbb-frequently-bought-rating-box" style="display: inline-block; margin-left: 5px;"></span></li>
-                        <li style="list-style-type: none;"><input type="checkbox" class="cbb-frequently-bought-selector-input" id="46384836149494" name="product_8495193391350" aria-label="Selection of Chipa Floral Curtain" checked="checked" style="appearance: checkbox; display: inline; float: none; width: auto; min-width: unset; height: auto; min-height: unset; margin-top: 0px; vertical-align: baseline;"><a tabindex="0" role="link" class="cbb-frequently-bought-selector-link" href="/products/chipa-floral-curtain?variant=46384836149494" style="font-weight: 400; display: inline; text-decoration: none;">
-                                <h3 class="cbb-frequently-bought-selector-label-name" style="display: inline; margin-left: 5px; line-height: 2em; font-weight: 400; font-size: 1em; text-decoration: none;">Chipa Floral Curtain</h3>
-                            </a><select class="cbb-recommendations-variant-select" aria-label="Variant selector" style="display: inline-block; appearance: menulist; background-image: none; width: auto; max-width: 220px; font-size: 0.9em; font-weight: normal; border: 1px solid rgb(224, 224, 224); color: rgb(33, 33, 33); background-color: rgb(255, 255, 255); text-align: left; vertical-align: baseline; margin: 2px 2px 2px 5px; padding: 2px; height: 2em; min-height: 2em; max-height: 2em;">
-                                <option value="0" data-variant-id="46384836149494">Door</option>
-                            </select><s class="cbb-frequently-bought-selector-label-compare-at-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 400; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹1,199.00</span></s><span class="cbb-frequently-bought-selector-label-regular-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: none;"></span><span class="cbb-frequently-bought-selector-label-sale-price" style="margin-left: 0.5em; white-space: nowrap; font-weight: 600; display: inline;"><span class="money" style="color: inherit; font-weight: inherit; font-size: inherit; text-decoration: inherit; white-space: nowrap;">₹700.00</span></span><span id="cbb-frequently-bought-rating-box-8495193391350" class="cbb-frequently-bought-rating-box" style="display: inline-block; margin-left: 5px;"></span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
-    <div id="shopify-section-template--16885347778806__product_reviews_cXiX3K" class="shopify-section t4s-section">
-        <link href="//vaaree.com/cdn/shop/t/130/assets/product_review.css?v=95052198324561611891711722352" rel="stylesheet" type="text/css" media="all">
-
-        <div class="t4s-container t4s-d-flex t4s-flex-wrap t4s-container-product-review">
-            <div class="product-review-column-left t4s-col-md-7  t4s-col-12 t4s-col-item"></div>
-            <div class="product-review-column-right product-review-container t4s-col-md-5 t4s-col-12 t4s-col-item">
-
-
-
-                <div style="clear:both"></div>
-                <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget jdgm-review-widget--medium" data-product-title="Vida Storage Box" data-id="8520322056438" data-from-snippet="false" data-auto-install="false">
-                    <div class="jdgm-rev-widg" data-updated-at="2024-04-30T05:05:13Z" data-average-rating="0.00" data-number-of-reviews="0" data-number-of-questions="0">
-                        <style class="jdgm-temp-hiding-style">
-                            .jdgm-rev-widg {
-                                display: none
-                            }
-                        </style>
-                        <div class="jdgm-rev-widg__header">
-                            <h2 class="jdgm-rev-widg__title">Customer Reviews</h2>
-                            <div class="jdgm-rev-widg__summary">
-                                <div class="jdgm-rev-widg__summary-stars" aria-label="Average rating is 0.00 stars" role="img"> <span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span> </div>
-                                <div class="jdgm-rev-widg__summary-text">Be the first to write a review</div>
-                            </div> <a style="display: none" href="#" class="jdgm-write-rev-link" role="button">Write a review</a>
-                            <div class="jdgm-histogram jdgm-temp-hidden">
-                                <div class="jdgm-histogram__row" data-rating="5" data-frequency="0" data-percentage="0">
-                                    <div class="jdgm-histogram__star" role="button" aria-label="0% (0) reviews with 5 star rating" tabindex="0"><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span></div>
-                                    <div class="jdgm-histogram__bar">
-                                        <div class="jdgm-histogram__bar-content" style="width: 0%;"> </div>
-                                    </div>
-                                    <div class="jdgm-histogram__percentage">0%</div>
-                                    <div class="jdgm-histogram__frequency">(0)</div>
-                                </div>
-                                <div class="jdgm-histogram__row" data-rating="4" data-frequency="0" data-percentage="0">
-                                    <div class="jdgm-histogram__star" role="button" aria-label="0% (0) reviews with 4 star rating" tabindex="0"><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--off"></span></div>
-                                    <div class="jdgm-histogram__bar">
-                                        <div class="jdgm-histogram__bar-content" style="width: 0%;"> </div>
-                                    </div>
-                                    <div class="jdgm-histogram__percentage">0%</div>
-                                    <div class="jdgm-histogram__frequency">(0)</div>
-                                </div>
-                                <div class="jdgm-histogram__row" data-rating="3" data-frequency="0" data-percentage="0">
-                                    <div class="jdgm-histogram__star" role="button" aria-label="0% (0) reviews with 3 star rating" tabindex="0"><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span></div>
-                                    <div class="jdgm-histogram__bar">
-                                        <div class="jdgm-histogram__bar-content" style="width: 0%;"> </div>
-                                    </div>
-                                    <div class="jdgm-histogram__percentage">0%</div>
-                                    <div class="jdgm-histogram__frequency">(0)</div>
-                                </div>
-                                <div class="jdgm-histogram__row" data-rating="2" data-frequency="0" data-percentage="0">
-                                    <div class="jdgm-histogram__star" role="button" aria-label="0% (0) reviews with 2 star rating" tabindex="0"><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span></div>
-                                    <div class="jdgm-histogram__bar">
-                                        <div class="jdgm-histogram__bar-content" style="width: 0%;"> </div>
-                                    </div>
-                                    <div class="jdgm-histogram__percentage">0%</div>
-                                    <div class="jdgm-histogram__frequency">(0)</div>
-                                </div>
-                                <div class="jdgm-histogram__row" data-rating="1" data-frequency="0" data-percentage="0">
-                                    <div class="jdgm-histogram__star" role="button" aria-label="0% (0) reviews with 1 star rating" tabindex="0"><span class="jdgm-star jdgm--on"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span><span class="jdgm-star jdgm--off"></span></div>
-                                    <div class="jdgm-histogram__bar">
-                                        <div class="jdgm-histogram__bar-content" style="width: 0%;"> </div>
-                                    </div>
-                                    <div class="jdgm-histogram__percentage">0%</div>
-                                    <div class="jdgm-histogram__frequency">(0)</div>
-                                </div>
-                                <div class="jdgm-histogram__row jdgm-histogram__clear-filter" data-rating="null" tabindex="0"></div>
-                            </div>
-                            <div class="jdgm-rev-widg__sort-wrapper"></div>
-                        </div>
-                        <div class="jdgm-rev-widg__body">
-                            <div class="jdgm-rev-widg__reviews"></div>
-                            <div class="jdgm-paginate" data-per-page="3" data-url="https://judge.me/reviews/reviews_for_widget"></div>
-                        </div>
-                        <div class="jdgm-rev-widg__paginate-spinner-wrapper">
-                            <div class="jdgm-spinner"></div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <div id="shopify-section-template--16885347778806__product-recommendations" class="shopify-section t4s-section id_product-recommendations"><!-- sections/product-recommendation.liquid -->
-        <div class="t4s-product-extra" data-sid="template--16885347778806__product-recommendations" data-baseurl="/recommendations/products" id="pr_recommendations" data-id="8520322056438" data-limit="12" data-type="3" data-expands="-1">
-            <div class="t4s-loading--bg"></div>
-        </div>
-    </div>
-    <section id="shopify-section-template--16885347778806__recently-viewed-products" class="shopify-section t4s-section id_recently_viewed"><!-- sections/recently_viewed.liquid -->
-        <div class="t4s-product-extra" id="recently_wrap" data-section-type="product-recently" data-sid="template--16885347778806__recently-viewed-products" data-unpr="show" data-id="id:8520322056438" data-limit="14" data-expands="-1">
-            <div class="t4s-loading--bg"></div>
-        </div>
-    </section>
-    <section id="shopify-section-template--16885347778806__cd51cdf0-a1be-41e2-92d7-2f3d82f56936" class="shopify-section t4s-section t4s-section-all t4s_tp_cdt t4s-accordion t4s_tp_tab"><!-- sections/accordion.liquid -->
-
-        <link href="//vaaree.com/cdn/shop/t/130/assets/faq-accordion.css?v=121501538562130401271696508764" rel="stylesheet" type="text/css" media="all">
-
-    </section>
 </main>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -1236,6 +1496,7 @@ if (isset($_POST['submit'])) {
     }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
 <?php

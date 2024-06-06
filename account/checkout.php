@@ -46,7 +46,17 @@ $address = mysqli_query($con, "select * from address where `user_id` = '" . $_SE
                                         <?php
                                         while ($row = mysqli_fetch_array($address)) {
                                         ?>
-                                            <option value="<?= $row['id'] ?>"><?= $row['shippingName'] ?> - <?= $row['shippingCity'] ?> / <?= $row['billingName'] ?> - <?= $row['billingCity'] ?></option>
+                                            <option value="<?= $row['id'] ?>">
+
+
+                                                <?= $row['mobile_no'] ?> -----
+                                                <?= $row['shippingName'] ?> -----
+                                                <?= $row['shippingAddress'] ?>
+                                                <?= $row['shippingCity'] ?>
+                                                <?= $row['shippingPincode'] ?>
+                                                <?= $row['shippingState'] ?>
+                                                <?= $row['shippingCountry'] ?>
+                                            </option>
                                         <?php } ?>
                                     </select>
 

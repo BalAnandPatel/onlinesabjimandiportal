@@ -1,9 +1,8 @@
 <?php
 include "include/header.php";
-$address = mysqli_query($con, "select * from address where `user_id` = '" . $_SESSION['id'] . "' and `for_order` is null");
+$address = mysqli_query($con, "select * from address where user_id = '" . $_SESSION['id'] . "' and  for_order is null");
 $count_address = mysqli_query($con, "select count(id) as count from address where `user_id` = '" . $_SESSION['id'] . "' and `for_order` is null ");
 $fetch_count_address = mysqli_fetch_array($count_address);
-
 ?>
 
 <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -56,25 +55,25 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                             <div class="t4s-row t4s-d-flex t4s-justify-content-between" style="margin:auto">
                                 <div class="t4s-col-lg-5 t4s-col-md-5 t4s-col-12">
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="shippingName" name="shippingName" value="" autocomplete="given-name" placeholder="Full Name">
+                                        <input class="t4s_frm_input" type="text" id="shippingName" required name="shippingName" value="" autocomplete="given-name" placeholder="Full Name">
                                         <label for="AddressFirstNameNew">Full Name</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="shippingAddress" name="shippingAddress" value="" autocomplete="address-line1" placeholder="Address">
+                                        <input class="t4s_frm_input" type="text" id="shippingAddress" required name="shippingAddress" value="" autocomplete="address-line1" placeholder="Address">
                                         <label for="AddressAddress1New">Address</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="shippingPincode" name="shippingPincode" value="" autocapitalize="characters" autocomplete="postal-code" placeholder="Pin Code">
+                                        <input class="t4s_frm_input" type="text" id="shippingPincode" required name="shippingPincode" value="" autocapitalize="characters" autocomplete="postal-code" placeholder="Pin Code">
                                         <label for="AddressZipNew">Pin Code</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="shippingCity" name="shippingCity" value="" autocomplete="address-level2" placeholder="City">
+                                        <input class="t4s_frm_input" type="text" id="shippingCity" required name="shippingCity" value="" autocomplete="address-level2" placeholder="City">
                                         <label for="AddressCityNew">City</label>
                                     </div>
                                     <div id="AddressProvinceContainerNew" style="" class="select-addr-label top-space">
                                         <label for="AddressProvinceNew">State</label>
                                         <div class="select">
-                                            <select id="shippingState" name="shippingState" data-default="" autocomplete="address-level1">
+                                            <select id="shippingState" name="shippingState" data-default="" required autocomplete="address-level1">
                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -120,7 +119,7 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                                     <div class="select-addr-label ">
                                         <label for="AddressCountryNew">Country/region</label>
                                         <div class="select">
-                                            <select id="shippingCountry" name="shippingCountry" data-default="" autocomplete="country">
+                                            <select id="shippingCountry" name="shippingCountry" data-default="" autocomplete="country" required>
                                                 <option value="India">India</option>
                                                 <option value="---">---</option>
                                                 <option value="Afghanistan">Afghanistan</option>
@@ -367,25 +366,25 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                                 </div>
                                 <div class="t4s-col-lg-5 t4s-col-md-5 t4s-col-12">
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="billingName" name="billingName" value="" autocomplete="given-name" placeholder="Full Name">
+                                        <input class="t4s_frm_input" type="text" id="billingName" required name="billingName" value="" autocomplete="given-name" placeholder="Full Name">
                                         <label for="AddressFirstNameNew">Full Name</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="billingAddress" name="billingAddress" value="" autocomplete="address-line1" placeholder="Address">
+                                        <input class="t4s_frm_input" type="text" id="billingAddress" required name="billingAddress" value="" autocomplete="address-line1" placeholder="Address">
                                         <label for="AddressAddress1New">Address</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="billingPincode" name="billingPincode" value="" autocapitalize="characters" autocomplete="postal-code" placeholder="Pin Code">
+                                        <input class="t4s_frm_input" type="text" id="billingPincode" required name="billingPincode" value="" autocapitalize="characters" autocomplete="postal-code" placeholder="Pin Code">
                                         <label for="AddressZipNew">Pin Code</label>
                                     </div>
                                     <div class="t4s_field t4s-pr">
-                                        <input class="t4s_frm_input" type="text" id="billingCity" name="billingCity" value="" autocomplete="address-level2" placeholder="City">
+                                        <input class="t4s_frm_input" type="text" id="billingCity" required name="billingCity" value="" autocomplete="address-level2" placeholder="City">
                                         <label for="AddressCityNew">City</label>
                                     </div>
                                     <div id="AddressProvinceContainerNew" style="" class="select-addr-label top-space">
                                         <label for="AddressProvinceNew">State</label>
                                         <div class="select">
-                                            <select id="billingState" name="billingState" data-default="" autocomplete="address-level1">
+                                            <select id="billingState" name="billingState" required autocomplete="address-level1">
                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -431,7 +430,7 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                                     <div class="select-addr-label ">
                                         <label for="AddressCountryNew">Country/region</label>
                                         <div class="select">
-                                            <select id="billingCountry" name="billingCountry" data-default="" autocomplete="country">
+                                            <select id="billingCountry" required name="billingCountry" data-default="" autocomplete="country">
                                                 <option value="India">India</option>
                                                 <option value="---">---</option>
                                                 <option value="Afghanistan">Afghanistan</option>
@@ -676,6 +675,10 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                                     </div>
                                 </div>
                             </div>
+                            <div class="t4s_field t4s-pr">
+                                <input type="text" class="t4s_frm_input" name="mobile_no" id="mobile_no">
+                                <label for="mobile_no">Mobile No.</label>
+                            </div>
                             <div style="margin-top: 10px;">
                                 <label for="same">
                                     <input type="checkbox" onchange="sameadd()" name="same" id="same">
@@ -726,34 +729,45 @@ $fetch_count_address = mysqli_fetch_array($count_address);
                             <?php
                             while ($fetch_address = mysqli_fetch_array($address)) {
                             ?>
+                                <div class="t4s-row" style="padding: 0 30px">
+                                    <div class="t4s-col-6">
+                                        <div class="address-head">
+                                            Shipping Address
+                                        </div>
+                                        <div class="address-text">
+                                            <b><?= $fetch_address['shippingName'] ?></b>
+                                            ----
+                                            <?= $fetch_address['shippingCity'] ?>
+                                            <?= $fetch_address['shippingAddress'] ?>,
+                                            <?= $fetch_address['shippingCity'] ?>,
+                                            <?= $fetch_address['shippingPincode'] ?>,
+                                            <?= $fetch_address['shippingState'] ?>,
+                                            <?= $fetch_address['shippingCountry'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="t4s-col-6">
+                                        <div class="address-head">
+                                            Billing Address
+                                        </div>
+                                        <div class="address-text">
+                                            <b><?= $fetch_address['billingName'] ?></b>
+                                            ----
+                                            <?= $fetch_address['billingCity'] ?>
+                                            <?= $fetch_address['billingAddress'] ?>,
+                                            <?= $fetch_address['billingCity'] ?>,
+                                            <?= $fetch_address['billingPincode'] ?>,
+                                            <?= $fetch_address['billingState'] ?>,
+                                            <?= $fetch_address['billingCountry'] ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="address-text">
+                                    <center><b>Mobile No.<?= $fetch_address['mobile_no'] ?></b></center>
+                                </div>
 
-                                <div class="address-head">
-                                    Shipping Address
-                                </div>
-                                <div class="address-text">
-                                    <b><?= $fetch_address['shippingName'] ?></b>
-                                    ----
-                                    <?= $fetch_address['shippingCity'] ?>
-                                    <?= $fetch_address['shippingAddress'] ?>,
-                                    <?= $fetch_address['shippingCity'] ?>,
-                                    <?= $fetch_address['shippingPincode'] ?>,
-                                    <?= $fetch_address['shippingState'] ?>,
-                                    <?= $fetch_address['shippingCountry'] ?>
-                                </div>
-                                <div class="address-head">
-                                    Billing Address
-                                </div>
-                                <div class="address-text">
-                                    <b><?= $fetch_address['billingName'] ?></b>
-                                    ----
-                                    <?= $fetch_address['billingCity'] ?>
-                                    <?= $fetch_address['billingAddress'] ?>,
-                                    <?= $fetch_address['billingCity'] ?>,
-                                    <?= $fetch_address['billingPincode'] ?>,
-                                    <?= $fetch_address['billingState'] ?>,
-                                    <?= $fetch_address['billingCountry'] ?>
-                                </div>
+                                <hr size="" height="10px">
                                 <br>
+
                                 <div class="address-buttons-container t4s-d-flex t4s-align-items-center t4s-justify-content-between">
                                     <a href="address_func.php?edit=<?= $fetch_address['id'] ?>" class="btn_black">
                                         Edit

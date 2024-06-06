@@ -118,7 +118,7 @@ $fetch_count_orders = mysqli_fetch_array($count_orders);
 
                                 <td>
                                     <a href="javascript:void(0);" onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');" title="Track order">
-                                        Track
+                                        Track | Cancel | Refund
                                 </td>
                             </tr>
                         <?php $cnt = $cnt + 1;

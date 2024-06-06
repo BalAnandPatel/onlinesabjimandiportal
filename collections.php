@@ -433,6 +433,17 @@ if (isset($_GET['page'])) {
                                                         <span class="t4s-badge-discountprice">
                                                             <?= round((($products['productPriceBeforeDiscount'] - $products['productPrice']) / $products['productPriceBeforeDiscount']) * 100, 2); ?>%Off</span>
                                                     </div>
+                                                    <?php if ($products['productAvailability'] == 'In Stock') { ?>
+                                                        <div class="text-center">
+                                                            <a href="account/cart.php?pid=<?php echo htmlentities($products['id']) ?>&action=cart" class="t4s-product-form__submit t4s-btn t4s-btn-style-default 
+                                                t4s-btn-color-primary t4s-w-100 t4s-justify-content-center  
+                                                t4s-btn-effect-sweep-to-top t4s-btn-loading__svg" style="padding: 10px">
+                                                                Add to Cart
+                                                            </a>
+                                                        </div>
+                                                    <?php } else { ?>
+                                                        <div class="action" style="color:red">Out of Stock</div>
+                                                    <?php } ?>
                                                     <div class="delivery_date_wrapper t4s-d-none" id="delivery_date_wrapper_8195757703414">
                                                         <span class="delivery_date_section">Delivery by</span>
                                                         <span id="shipping-estimate-date" class="delivery_date"></span>

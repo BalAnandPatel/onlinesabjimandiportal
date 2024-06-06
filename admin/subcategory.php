@@ -5,7 +5,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 } else {
 	if (isset($_POST['submit'])) {
 		$category = $_POST['category'];
-		$subcategory = $_POST['subcategory'];
+ 		$subcategory = $_POST['subcategory'];
 		if (!empty($_POST['subcategory'])) {
 			$path = "uploads/subcategory/";
 			if (!is_dir($path)) {
@@ -15,8 +15,10 @@ if (strlen($_SESSION['alogin']) == 0) {
 			$filename = time() . ".png";
 			$target_file = $path . $filename;
 			if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-				$sql = mysqli_query($con, "insert into subcategory(categoryid,subcategory, subcategoryImage) values('$category','$subcategory','$filename')");
-				// $_SESSION['msg'] = "SubCategory Created !!";
+				//echo "hello";
+				$sql = mysqli_query($con, "insert into subcategory(categoryid,subcategory,subcategoryImage) values('$category','$subcategory','$filename')");
+			   // print_r($sql);
+				 $_SESSION['msg'] = "SubCategory Created !!";
 			} else {
 				exit();
 			}

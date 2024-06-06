@@ -3,6 +3,7 @@ include('include/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
+
 	date_default_timezone_set('Asia/Kolkata'); // change according timezone
 	$currentTime = date('d-m-Y h:i:s A', time());
 
@@ -44,7 +45,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 							<div class="module">
 								<div class="module-head">
-									<h3>Pending Orders</h3>
+									<h3>Exchange Orders</h3>
 								</div>
 								<div class="module-body table">
 									<?php if (isset($_GET['del'])) { ?>
@@ -59,7 +60,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive">
 										<thead>
-											<tr>
 											<tr>
 												<th>#</th>
 												<th>Order_id</th>
@@ -77,20 +77,17 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 
 											</tr>
-
-
-											</tr>
 										</thead>
 
 										<tbody>
 											<?php
-											$st = 'Delivered';
-											$query = mysqli_query($con, "select users.name as username,users.email as useremail,users.contactno as usercontact,address.shippingAddress as shippingaddress,address.shippingCity as shippingcity,address.shippingState as shippingstate,address.shippingPincode as shippingpincode,address.mobile_no as mobile_no, address.billingAddress as billingaddress,address.billingCity as billingcity,address.billingState as billingstate,address.billingPincode as billingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.orderStatus as orderstatus,orders.quantity as quantity,orders.order_id as order_id, orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id,orders.paymentMethod as pyamentmethod  from orders join users on  orders.userId=users.id join address on users.id=address.user_id join products on products.id=orders.productId where orders.orderStatus='$st'");
+											$status = 'Delivered';
+											$query1 = mysqli_query($con, "select users.name as username,users.email as useremail,users.contactno as usercontact,address.shippingAddress as shippingaddress,address.shippingCity as shippingcity,address.shippingState as shippingstate,address.shippingPincode as shippingpincode,address.mobile_no as mobile_no, address.billingAddress as billingaddress,address.billingCity as billingcity,address.billingState as billingstate,address.billingPincode as billingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.orderStatus as orderstatus,orders.quantity as quantity,orders.order_id as order_id, orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id,orders.paymentMethod as pyamentmethod  from orders join users on  orders.userId=users.id join address on users.id=address.user_id join products on products.id=orders.productId where orders.orderStatus!='$status' or orders.orderStatus is null");
 											$cnt = 1;
-											while ($row = mysqli_fetch_array($query)) {
+											while ($row = mysqli_fetch_array($query1)) {
 											?>
 												<tr>
-												<td><?php echo htmlentities($cnt); ?></td>
+													<td><?php echo htmlentities($cnt); ?></td>
 													<td><?php echo htmlentities($row['order_id']); ?></td>
 													<td><?php echo htmlentities($row['username']); ?></td>
 													<td><?php echo htmlentities($row['useremail']); ?>/<?php echo htmlentities($row['usercontact']); ?></td>

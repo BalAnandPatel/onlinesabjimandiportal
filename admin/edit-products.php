@@ -178,7 +178,7 @@ if (!isset($_SESSION['alogin'])) {
 												<label class="control-label" for="basicinput">Product Highlights</label>
 												<div class="controls">
 													<textarea name="producthighlight" placeholder="Enter Product Description" rows="6" class="span8 tip">
-<?php echo htmlentities($row['producthighlight']); ?>
+                                                    <?php echo htmlentities($row['producthighlight']); ?>
 </textarea>
 												</div>
 

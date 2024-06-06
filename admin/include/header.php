@@ -6,7 +6,7 @@
 				</a>
 
 			  	<a class="brand" href="index.html">
-				  Online Sabji Mandi | Admin
+				  Eracreatix | Admin
 			  	</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">

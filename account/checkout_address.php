@@ -667,6 +667,10 @@ $address = mysqli_query($con, "select * from address where `user_id` = '" . $_SE
 
                                 </div>
                             </div>
+                            <div class="t4s_field t4s-pr">
+                                <input type="text" class="t4s_frm_input" name="mobile_no" id="mobile_no">
+                                <label for="mobile_no">Mobile No.</label>
+                            </div>
                             <br>
                             <div>
                                 <label for="same">
@@ -699,7 +703,7 @@ $address = mysqli_query($con, "select * from address where `user_id` = '" . $_SE
 
                             <div class="set-default-addr">
                                 <label for="address_default_address_new" class="select-addr-label">GSTN (optional)</label>
-                                <input type="text" id="address_default_address_new" name="gstn" value="">
+                                <input type="text" id="address_default_address_new" name="gstn">
                             </div>
                             <!-- <br> -->
                             <hr width="100%" size="5px" style="background-color: #000;max-width: inherit;">

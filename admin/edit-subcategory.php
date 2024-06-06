@@ -6,13 +6,33 @@ if (strlen($_SESSION['alogin']) == 0) {
 	date_default_timezone_set('Asia/Kolkata'); // change according timezone
 	$currentTime = date('d-m-Y h:i:s A', time());
 
-
 	if (isset($_POST['submit'])) {
 		$category = $_POST['category'];
 		$subcat = $_POST['subcategory'];
 		$id = intval($_GET['id']);
-		$sql = mysqli_query($con, "update subcategory set categoryid='$category',subcategory='$subcat',updationDate='$currentTime' where id='$id'");
-		$_SESSION['msg'] = "Sub-Category Updated !!";
+
+		if (!empty($_FILES['image'])) {
+			$query = mysqli_query($con, "select * from subcategory where id='$id'");
+			$row = mysqli_fetch_array($query);
+			unlink('uploads/subcategory/' . $row['subcategoryImage']);
+			$path = "uploads/subcategory/";
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+				// echo "directory created";
+			}
+			$filename = time() . ".png";
+			$target_file = $path . $filename;
+			if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+				$sql = mysqli_query($con, "update subcategory set categoryid='$category',subcategory='$subcat',subcategoryImage='$filename',updationDate='$currentTime' where id='$id'");
+				$_SESSION['msg'] = "Sub-Category Updated !!";
+			} else {
+				exit();
+			}
+			// exit();
+		} else {
+			$sql = mysqli_query($con, "update subcategory set subcategory='$subcat',updationDate='$currentTime' where id='$id'");
+			// exit();
+		}
 	}
 
 ?>
@@ -56,7 +76,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 									<br />
 
-									<form class="form-horizontal row-fluid" name="Category" method="post">
+									<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data">
 										<?php
 										$id = intval($_GET['id']);
 										$query = mysqli_query($con, "select category.id,category.categoryName,subcategory.subcategory from subcategory join category on category.id=subcategory.categoryid where subcategory.id='$id'");
@@ -82,13 +102,17 @@ if (strlen($_SESSION['alogin']) == 0) {
 												</div>
 											</div>
 
-
-
-
 											<div class="control-group">
 												<label class="control-label" for="basicinput">SubCategory Name</label>
 												<div class="controls">
 													<input type="text" placeholder="Enter category Name" name="subcategory" value="<?php echo  htmlentities($row['subcategory']); ?>" class="span8 tip" required>
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label" for="basicinput">SubCategory Image</label>
+												<div class="controls">
+													<input type="file" placeholder="Select category image" name="image" value="<?php echo  htmlentities($row['subcategory']); ?>" class="span8 tip" required>
+													<p><small>Upload if you want to change image</small></p>
 												</div>
 											</div>
 

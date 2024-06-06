@@ -2,6 +2,6 @@
 		<div class="container">
 			 
 
-			<b class="copyright">&copy; 2024 Online Sabji Mandi </b> All rights reserved.
+			<b class="copyright">&copy; 2024 Eracreatix </b> All rights reserved.
 		</div>
 	</div>

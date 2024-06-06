@@ -4,6 +4,7 @@ $address = mysqli_query($con, "select * from address where `id`='" . base64_deco
 // $count_address = mysqli_query($con, "select count(id) as count from address where `user_id` = '" . $_SESSION['id'] . "' and `for_order` is null ");
 $fetch_address = mysqli_fetch_array($address);
 
+$mobile_no = $fetch_address['mobile_no'];
 $shippingName = $fetch_address['shippingName'];
 $shippingAddress = $fetch_address['shippingAddress'];
 $shippingCity = $fetch_address['shippingCity'];
@@ -692,6 +693,10 @@ $billingCountry = $fetch_address['billingCountry'];
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="t4s_field t4s-pr">
+                                <input type="text" class="t4s_frm_input" value="<?=$mobile_no?>" name="mmobile_no" id="mobile_no">
+                                <label for="mobile_no">Mobile No.</label>
                             </div>
                             <div class="customer-sticky-wrapper save-address" style="margin: 10px;">
                                 <button type="submit" name="submit" class="t4s_btn_black customer-sticky-button" id="save-address">
